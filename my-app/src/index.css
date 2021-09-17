@@ -1,5 +1,7 @@
+/* Importing font from google font */
 @import url('https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300&display=swap');
 
+/* CSS reset */
 *,
 *::before,
 *::after {
@@ -9,46 +11,46 @@
 }
 html {
   max-width: 1600px;
-  min-width: 300px;
+  min-width: 200px;
   font-size: 13px;
   font-family: 'Hind Siliguri', sans-serif;
 }
 body{
   background-color: rgb(142, 248, 222);
 }
+
+/* Container is the parent of all the element of the web page after body */
 .container {
   width: 60%;
   height: 100vh;
   margin: 0em auto 0 auto;
   font-size: 1.2em;
-  /* background-color: rgb(235, 253, 239); */
-  /* border: 0.1em solid black; */
   background-image: url('https://cdn.pixabay.com/photo/2017/03/02/16/54/iceland-2111811_1280.jpg');
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
   box-shadow: 1px 0 5px rgb(0, 0, 0);
 }
+/* profile contain profile pic and name . And show at the top of the chat window */
 .profile {
   width: 100%;
   padding: 0.5em;
   background-color: rgb(228, 213, 241);
   box-shadow: 0 2px 5px black;
   display: flex;
-  /* justify-content:flex-start; */
   align-items: center;
 }
 .profile img {
-  /* display: block; */
   width: 3em;
   margin: 0 0.5em 0 0.5em;
 }
 .profile-name {
-  /* display: block; */
   color: red;
   text-align: center;
   font-size: 1.3em;
 }
+
+/* messgae is the main container of messages.  */
 .messages {
   width: 100%;
   height: calc(100% - 7.5em);
@@ -57,6 +59,12 @@ body{
   overflow-y: auto;
   
 }
+/* inhert is a empty div only used to inhert the height of Reactautoscrollfeed component */
+.inhert{
+  height: 100%;
+}
+
+/* These codes are for scrollbar design */
 .messages::-webkit-scrollbar {
   width: 0.2em;
 }
@@ -65,6 +73,7 @@ body{
   border-radius: 10px;
 }
 
+/* It contains the image, message and time */
 .msg-container {
   display: flex;
   flex-direction: column;
@@ -80,6 +89,7 @@ body{
   align-items: flex-end;
 }
 
+/* msg-line contains message and small image */
 .msg-line {
   display: flex;
   flex-direction: row;
@@ -110,6 +120,7 @@ p {
   flex-direction: row-reverse;
 }
 
+/* input-btn is a form that contain input field where user will type message and button which end the message */
 .input-btn {
   display: flex;
 }
@@ -140,6 +151,7 @@ button {
   cursor: pointer;
 }
 
+/* after 770px chat window will be full screen. In Ipad full screen view will be shown */
 @media screen and (max-width: 770px) {
   .container {
     width: 100%;
@@ -147,11 +159,4 @@ button {
   }
 }
 
-@media only screen and (max-height: 500px) {
-  .profile {
-    /* display: none; */
-  }
-  .messages {
-    /* height: calc(100% - 2.9em); */
-  }
-}
+

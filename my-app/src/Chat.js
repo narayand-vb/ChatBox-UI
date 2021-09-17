@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Message from "./Message";
 import getDataFromServer from "./Data";
+import botmsg from "./Bot";
 import moment from "moment";
 import ReactScrollableFeed from "react-scrollable-feed";
 
@@ -14,23 +15,31 @@ const Chat = () => {
 
   const sendMsg = () => {
     if (oldData.trim() != "") {
-      let details = {
+      let msgObj = {
         message: oldData,
         createdAt: moment().format(),
         sender: "user",
         _id: state.length + 1,
       };
-      setstate((old) => {
-        return [...old, details];
+       setstate((old) => {
+        return [...old, msgObj];
       });
-    }
+
+      // Bot to send message. Here botmsg is importing data from Bot.js and it will be sended to user as agent after 2 second.
+      setTimeout(async () => {
+      let bot_msg ={
+        message : await botmsg(oldData),
+        createdAt: moment().format(),
+          sender: "agent",
+          _id: state.length + 1,
+      }
+      setstate((old) => {
+        return [...old, bot_msg];
+      });
+    }, 2000);
+  }
     setData("");
-    // const element = document.querySelector(".msg-container");
-    // console.log(element.scrollTop);
-    // element.scrollTop = 500;
-    // console.log(element.scrollTop);
   };
-  console.log(state);
 
   const onsubmit = (e) => {
     e.preventDefault();
@@ -38,7 +47,9 @@ const Chat = () => {
 
   return (
     <>
+    {/* All the html are written in JSX */}
       <div className="container">
+        {/* Profile : It contain profile pic and name */}
         <div className="profile">
           <img
             src="https://icon-library.com/images/avatar-icon-images/avatar-icon-images-4.jpg"
@@ -47,8 +58,12 @@ const Chat = () => {
           />
           <span className="profile-name">Agent</span>
         </div>
+        {/* Messaages : It will contain all the messages only */}
         <div className="messages">
-          {/* <ReactScrollableFeed className="messages"> */}
+          <div className="inhert">
+            {/* ReactScrollableFeed is use to scroll the messages automatically */}
+          <ReactScrollableFeed className="messages">
+            {/* Map method is sending the data of every message to Message component */}
           {state.map((msg_obj) => {
             return (
               <Message
@@ -58,9 +73,10 @@ const Chat = () => {
               />
             );
           })}
-          {/* </ReactScrollableFeed> */}
+          </ReactScrollableFeed>
+          </div>
         </div>
-
+          {/* Form contain input where user can type message and button to send message */}
           <form action="" className="input-btn" onSubmit={onsubmit}>
             <input
               type="text"
@@ -78,4 +94,5 @@ const Chat = () => {
   );
 };
 
+// Exporting the Chat to App.js
 export default Chat;
