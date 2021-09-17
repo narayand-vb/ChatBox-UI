@@ -1,0 +1,20 @@
+{
+  "files": {
+    "main.css": "/ChatBox-UI/static/css/main.0de8f48a.chunk.css",
+    "main.js": "/ChatBox-UI/static/js/main.6a99f330.chunk.js",
+    "main.js.map": "/ChatBox-UI/static/js/main.6a99f330.chunk.js.map",
+    "runtime-main.js": "/ChatBox-UI/static/js/runtime-main.cf4adba7.js",
+    "runtime-main.js.map": "/ChatBox-UI/static/js/runtime-main.cf4adba7.js.map",
+    "static/js/2.d61a6866.chunk.js": "/ChatBox-UI/static/js/2.d61a6866.chunk.js",
+    "static/js/2.d61a6866.chunk.js.map": "/ChatBox-UI/static/js/2.d61a6866.chunk.js.map",
+    "index.html": "/ChatBox-UI/index.html",
+    "static/css/main.0de8f48a.chunk.css.map": "/ChatBox-UI/static/css/main.0de8f48a.chunk.css.map",
+    "static/js/2.d61a6866.chunk.js.LICENSE.txt": "/ChatBox-UI/static/js/2.d61a6866.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.cf4adba7.js",
+    "static/js/2.d61a6866.chunk.js",
+    "static/css/main.0de8f48a.chunk.css",
+    "static/js/main.6a99f330.chunk.js"
+  ]
+}
