@@ -14,7 +14,7 @@ const Chat = () => {
   };
 
   const sendMsg = () => {
-    if (oldData.trim() != "") {
+    if (oldData.trim() !== "") {
       let msgObj = {
         message: oldData,
         createdAt: moment().format(),
@@ -31,7 +31,7 @@ const Chat = () => {
         message : await botmsg(oldData),
         createdAt: moment().format(),
           sender: "agent",
-          _id: state.length + 1,
+          _id: state.length + 2,
       }
       setstate((old) => {
         return [...old, bot_msg];
@@ -67,6 +67,7 @@ const Chat = () => {
           {state.map((msg_obj) => {
             return (
               <Message
+                key = {msg_obj._id}
                 message={msg_obj.message}
                 time={moment(msg_obj.createdAt).fromNow()}
                 sender={msg_obj.sender}
